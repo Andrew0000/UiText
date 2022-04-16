@@ -1,5 +1,7 @@
 # UiText
 
+Helps you to separate context-specific and context-independent parts of texts.
+
 ### The problem: 
 How to store strings / texts in android View Model? The good approach is to store only Ids. But what about more complex cases when we need not only simple string by id, but something formatted or even sometimes just plain string?
 
