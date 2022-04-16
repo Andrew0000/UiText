@@ -30,10 +30,10 @@ sealed class UiText {
 
     object CustomFactories {
 
-        private val factories = mutableMapOf<Int, (Any?) -> CharSequence>()
+        private val factories = mutableMapOf<Int, (Context, Any?) -> CharSequence>()
 
         @MainThread
-        fun register(id: Int, factory: (Any?) -> CharSequence) {
+        fun register(id: Int, factory: (Context, Any?) -> CharSequence) {
             factories[id] = factory
         }
 
@@ -43,7 +43,7 @@ sealed class UiText {
         }
 
         @MainThread
-        internal fun get(id: Int): ((Any?) -> CharSequence)? =
+        internal fun get(id: Int): ((Context, Any?) -> CharSequence)? =
             factories[id]
     }
 }
@@ -58,7 +58,7 @@ fun UiText.getString(context: Context): CharSequence =
         is UiText.Custom -> {
             val factory = UiText.CustomFactories.get(factoryId)
             if (factory != null) {
-                factory(payload)
+                factory(context, payload)
             } else {
                 ""
             }

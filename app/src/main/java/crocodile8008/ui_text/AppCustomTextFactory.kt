@@ -9,7 +9,7 @@ object AppCustomTextFactory {
     fun register() {
         UiText.CustomFactories.register(
             id = ID_HTML,
-            factory = { payload ->
+            factory = { _, payload ->
                 HtmlCompat.fromHtml(
                     "Custom factory: <font color=\"red\"><b>$payload</b></font>. OK",
                     HtmlCompat.FROM_HTML_MODE_LEGACY
