@@ -1,5 +1,19 @@
 <resources>
     <string name="app_name">UiText</string>
+
     <string name="plain_string">Plain string from resources</string>
     <string name="formatted_string">Formatted: %1$s / %2$d / %3$f</string>
+
+    <plurals name="plural_plain_string">
+        <item quantity="one">Plural plain one</item>
+        <item quantity="few">Plural plain few</item>
+        <item quantity="other">Plural plain other</item>
+    </plurals>
+
+    <plurals name="plural_format_string">
+        <item quantity="one">Plural args one: %d / %s / %s</item>
+        <item quantity="few">Plural args few: %d / %s / %s</item>
+        <item quantity="other">Plural args other: %d / %s / %s</item>
+    </plurals>
+
 </resources>

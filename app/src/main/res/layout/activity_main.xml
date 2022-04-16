@@ -48,4 +48,26 @@
         app:layout_constraintTop_toBottomOf="@id/textView02"
         tools:text="Text" />
 
+    <TextView
+        android:id="@+id/textView04"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView03"
+        tools:text="Text" />
+
+    <TextView
+        android:id="@+id/textView05"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView04"
+        tools:text="Text" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
