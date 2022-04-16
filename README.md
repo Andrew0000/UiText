@@ -18,6 +18,11 @@ _field04.value = UiText.Plural(R.plurals.plural_plain_string, 1)
 _field05.value = UiText.PluralFormat(R.plurals.plural_format_string, 3,  1, "2", "3")
 ```
 
+In view layer:  
+```
+textView01.setUiText(it)
+```
+
 # Setup:  
 
 [![](https://jitpack.io/v/Andrew0000/UiText.svg)](https://jitpack.io/#Andrew0000/UiText)
