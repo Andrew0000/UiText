@@ -12,14 +12,17 @@ sealed class UiText {
 
     data class Str(val string: String) : UiText()
 
-    data class Format(@StringRes val id: Int, val formatArg: String) : UiText()
+    data class Format(@StringRes val id: Int, val formatArgs: List<Any>) : UiText() {
+
+        constructor(@StringRes id: Int, vararg formatVarArgs: Any): this(id, formatVarArgs.asList())
+    }
 }
 
 fun UiText.getString(context: Context): String =
     when (this) {
         is UiText.Res -> context.getString(id)
         is UiText.Str -> string
-        is UiText.Format -> context.getString(id, formatArg)
+        is UiText.Format -> context.getString(id, *formatArgs.toTypedArray())
     }
 
 fun TextView.setUiText(uiText: UiText) {

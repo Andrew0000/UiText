@@ -4,8 +4,11 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
+        maven { url "https://jitpack.io" }
     }
 }
 rootProject.name = "UiText"
 include ':app'
-include ':ui_text'
+if (!System.env.JITPACK) {
+    include ':ui_text'
+}
