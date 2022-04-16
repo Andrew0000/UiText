@@ -22,6 +22,7 @@ In view layer:
 ```
 textView01.setUiText(it)
 ```
+In this way we can forget about language changes (view recreation), because we still rely on Ids basically.  
 
 # Setup:  
 
