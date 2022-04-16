@@ -27,26 +27,36 @@ class MainViewModel : ViewModel() {
     private val _field05 = MutableStateFlow<UiText>(UiText.Str("Initial 5"))
     val field05: Flow<UiText> = _field05
 
+    private val _field06 = MutableStateFlow<UiText>(UiText.Str("Initial 6"))
+    val field06: Flow<UiText> = _field06
+
     init {
         viewModelScope.launch {
             delay(1000)
             _field01.value = UiText.Str("Just string")
         }
         viewModelScope.launch {
-            delay(2000)
+            delay(1100)
             _field02.value = UiText.Res(R.string.plain_string)
         }
         viewModelScope.launch {
-            delay(3000)
+            delay(1200)
             _field03.value = UiText.Format(R.string.formatted_string, "first", 2, 3f)
         }
         viewModelScope.launch {
-            delay(4000)
+            delay(1300)
             _field04.value = UiText.Plural(R.plurals.plural_plain_string, 1)
         }
         viewModelScope.launch {
-            delay(5000)
+            delay(1400)
             _field05.value = UiText.PluralFormat(R.plurals.plural_format_string, 3,  1, "2", "3")
+        }
+        viewModelScope.launch {
+            delay(1500)
+            _field06.value = UiText.Custom(
+                factoryId = AppCustomTextFactory.ID_HTML,
+                payload = "Hello",
+            )
             _inProgress.value = false
         }
     }
