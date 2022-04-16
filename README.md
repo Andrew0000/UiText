@@ -26,6 +26,8 @@ textView01.setUiText(it)
 ```
 In this way we can forget about language changes (view recreation), because we still rely on Ids basically.  
 
+Need more? Take a look at `UiText.Custom`
+
 # Setup:  
 
 [![](https://jitpack.io/v/Andrew0000/UiText.svg)](https://jitpack.io/#Andrew0000/UiText)
