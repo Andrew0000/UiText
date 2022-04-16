@@ -8,7 +8,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "UiText"
-include ':app'
+include ':ui_text'
 if (!System.env.JITPACK) {
-    include ':ui_text'
+    include ':app'
 }
