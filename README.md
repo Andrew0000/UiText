@@ -1,9 +1,9 @@
 # UiText
 
-## The problem: 
-How to store strings / texts in android View Model? The good approach is to store only Ids. But what about more complex cases when we need not only simple string by id, but something formatted or even sometimes just plain string? So here we are.
+### The problem: 
+How to store strings / texts in android View Model? The good approach is to store only Ids. But what about more complex cases when we need not only simple string by id, but something formatted or even sometimes just plain string?
 
-## The solution:
+### The solution:
 Use UiText wrappers.  
 Example for typical ViewModel:  
 ```
