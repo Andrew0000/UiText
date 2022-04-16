@@ -3,8 +3,7 @@ package crocodile8008.ui_text
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
@@ -31,6 +30,7 @@ class MainViewModel : ViewModel() {
     val field06: Flow<UiText> = _field06
 
     init {
+        waitAllFlowsToHideProgress()
         viewModelScope.launch {
             delay(1000)
             _field01.value = UiText.Str("Just string")
@@ -57,7 +57,23 @@ class MainViewModel : ViewModel() {
                 factoryId = AppCustomTextFactory.ID_HTML,
                 payload = "Hello",
             )
-            _inProgress.value = false
+        }
+    }
+
+    private fun waitAllFlowsToHideProgress() {
+        viewModelScope.launch {
+            combine(
+                _field01.drop(1),
+                _field02.drop(1),
+                _field03.drop(1),
+                _field04.drop(1),
+                _field05.drop(1),
+                _field06.drop(1)
+            ) {
+                // Empty
+            }.collect {
+                _inProgress.value = false
+            }
         }
     }
 }
