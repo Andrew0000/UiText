@@ -65,6 +65,16 @@ fun UiText.getString(context: Context): CharSequence =
         }
     }
 
+@StringRes
+fun UiText.getResId(): Int? =
+    when(this) {
+        is UiText.Res -> id
+        is UiText.Plural -> id
+        is UiText.Format -> id
+        is UiText.PluralFormat -> id
+        else -> null
+    }
+
 fun TextView.setUiText(uiText: UiText) {
     when (uiText) {
         is UiText.Res -> setText(uiText.id)
