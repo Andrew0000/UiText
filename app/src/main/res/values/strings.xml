@@ -3,6 +3,7 @@
 
     <string name="plain_string">Plain string from resources</string>
     <string name="formatted_string">Formatted: %1$s / %2$d / %3$f</string>
+    <string name="formatted_string_2">Formatted: [ %1$s and %2$s ]</string>
 
     <plurals name="plural_plain_string">
         <item quantity="one">Plural plain one</item>

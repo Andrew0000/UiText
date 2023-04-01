@@ -52,7 +52,18 @@ fun UiText.getString(context: Context): CharSequence =
     when (this) {
         is UiText.Res -> context.getString(id)
         is UiText.Str -> string
-        is UiText.Format -> context.getString(id, *formatArgs.toTypedArray())
+        is UiText.Format -> context.getString(
+            id,
+            *formatArgs
+                .map {
+                    if (it is UiText) {
+                        it.getString(context)
+                    } else {
+                        it
+                    }
+                }
+                .toTypedArray()
+        )
         is UiText.Plural -> context.resources.getQuantityString(id, count)
         is UiText.PluralFormat -> context.resources.getQuantityString(id, count, *formatArgs.toTypedArray())
         is UiText.Custom -> {

@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var textView04: TextView
     private lateinit var textView05: TextView
     private lateinit var textView06: TextView
+    private lateinit var textView07: TextView
     private lateinit var progressBar: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         textView04 = findViewById(R.id.textView04)
         textView05 = findViewById(R.id.textView05)
         textView06 = findViewById(R.id.textView06)
+        textView07 = findViewById(R.id.textView07)
         progressBar = findViewById(R.id.progressBar)
     }
 
@@ -54,6 +56,9 @@ class MainActivity : AppCompatActivity() {
         }
         viewModel.field06.observeWhenStarted(this) {
             textView06.setUiText(it)
+        }
+        viewModel.field07.observeWhenStarted(this) {
+            textView07.setUiText(it)
         }
         viewModel.inProgress.observeWhenStarted(this) {
             progressBar.isInvisible = !it

@@ -29,6 +29,9 @@ class MainViewModel : ViewModel() {
     private val _field06 = MutableStateFlow<UiText>(UiText.Str("Initial 6"))
     val field06: Flow<UiText> = _field06
 
+    private val _field07 = MutableStateFlow<UiText>(UiText.Str("Initial 7"))
+    val field07: Flow<UiText> = _field07
+
     init {
         waitAllFlowsToHideProgress()
         viewModelScope.launch {
@@ -58,6 +61,22 @@ class MainViewModel : ViewModel() {
                 payload = "Hello",
             )
         }
+        viewModelScope.launch {
+            delay(1600)
+            _field07.value = UiText.Format(
+                R.string.formatted_string_2,
+                "first",
+                UiText.Format(
+                    R.string.formatted_string_2,
+                    "second",
+                    UiText.Format(
+                        R.string.formatted_string_2,
+                        "third",
+                        UiText.Str("End of nested formats"),
+                    ),
+                ),
+            )
+        }
     }
 
     private fun waitAllFlowsToHideProgress() {
@@ -68,7 +87,8 @@ class MainViewModel : ViewModel() {
                 _field03.drop(1),
                 _field04.drop(1),
                 _field05.drop(1),
-                _field06.drop(1)
+                _field06.drop(1),
+                _field07.drop(1),
             ) {
                 // Empty
             }.collect {
